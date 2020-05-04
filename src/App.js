@@ -1,26 +1,55 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import Formulario from "./Formulario/Formulario";
+import {
+   BrowserRouter as Router,
+   Switch,
+   Route
+} from "react-router-dom";
+import Consulta from "./Consulta/Consulta";
+
+
+const theme = createMuiTheme({
+    typography: {
+        useNextVariants: true,
+        fontFamily: ["Noto Sans SC", '"Helvetica"', '"Arial"', '"sans-serif"'].join(","),
+    },
+    palette: {
+        primary: {
+            main: "#d32f2f",
+            light: "#ff6659",
+            dark: "#9a0007",
+            contrastText: "#ffffff"
+        },
+        secondary: {
+            main: "#f44336",
+            light: "#ff7961",
+            dark: "#ba000d",
+            contrastText: "#000000"
+        },
+        white: "#ffffff",
+        grey: {
+          dark: "#666666",
+          light: "#f2f2f2"
+        },
+        contrastThreshold: 3,
+    },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme = {theme}>
+       <Router>
+           <Switch>
+               <Route exact path="/">
+                   <Formulario/>
+               </Route>
+               <Route exact path="/consulta">
+                   <Consulta/>
+               </Route>
+           </Switch>
+       </Router>
+    </ThemeProvider>
   );
 }
-
 export default App;
