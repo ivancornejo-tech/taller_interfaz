@@ -7,6 +7,7 @@ import {
    Route
 } from "react-router-dom";
 import Consulta from "./Consulta/Consulta";
+import Login from "./Login/Login";
 
 
 const theme = createMuiTheme({
@@ -46,6 +47,9 @@ function App() {
                </Route>
                <Route exact path="/consulta">
                    <Consulta/>
+               </Route>
+               <Route exact path="/login">
+                   <Login/>
                </Route>
            </Switch>
        </Router>

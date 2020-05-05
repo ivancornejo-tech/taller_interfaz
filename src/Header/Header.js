@@ -93,7 +93,7 @@ class Header extends React.Component {
                                 <MenuItem component={Link} to={'/consulta'}>Consulta de Servidores</MenuItem>
                             </Menu>
                             <div className={classes.space}></div>
-                            <Button>Iniciar sesión</Button>
+                            <Button component={Link} to={'/login'}>Iniciar sesión</Button>
                         </Toolbar>
                     </Grid>
                 </Grid>
